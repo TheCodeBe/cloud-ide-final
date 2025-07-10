@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  cloud-ide:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PASSWORD=your-secure-password
+    volumes:
+      - workspace:/workspace
+      - rclone-config:/home/coder/.config/rclone
+    restart: unless-stopped
+
+volumes:
+  workspace:
+  rclone-config:
